@@ -12,6 +12,7 @@
 /[Aa]ssets/[Aa]rt/
 /[Aa]ssets/[Pp]refabs
 /[Aa]ssets/[Ll]egends
+[Aa]seets/[Tt]emp
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
