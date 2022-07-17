@@ -106,7 +106,8 @@ public class PlayerController : Singleton<PlayerController>
         horizontalMovement = 0;
         verticalMovement = 0;
 
-        IgnoreCollisions();
+        // TODO - don't forget to uncomment this line
+        //IgnoreCollisions();
     }
 
     /// <summary>

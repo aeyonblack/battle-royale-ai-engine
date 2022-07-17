@@ -13,11 +13,11 @@ public class Health : MonoBehaviour
 
     public float currentHealth;
 
-    public MMFeedbacks DamageFeedback;
+    //public MMFeedbacks DamageFeedback;
 
-    public MMFeedbacks DeathFeedbacks;
+    //public MMFeedbacks DeathFeedbacks;
 
-    public MMProgressBar HealthBar;
+    //public MMProgressBar HealthBar;
 
     public TextMeshProUGUI HealthText;
 
@@ -43,7 +43,7 @@ public class Health : MonoBehaviour
         character = GetComponent<CharacterData>();
         lootDrop = GetComponent<LootDrop>();
         currentHealth = startingHealth;
-        HealthBar.SetBar(currentHealth, 0, maxHealth);
+        //HealthBar.SetBar(currentHealth, 0, maxHealth);
         HealthText.text = ((int)currentHealth).ToString() + "%";
     }
 
@@ -88,8 +88,8 @@ public class Health : MonoBehaviour
     /// <param name="value"></param>
     private void UpdateHealthProgress(float value)
     {
-        HealthBar.UpdateBar(value, 0, maxHealth);
-        HealthText.text = ((int)currentHealth).ToString() + "%";
+        //HealthBar.UpdateBar(value, 0, maxHealth);
+        //HealthText.text = ((int)currentHealth).ToString() + "%";
     }
 
     /// <summary>
