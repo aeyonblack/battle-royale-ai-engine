@@ -13,6 +13,7 @@ public class JoystickEditor : Editor
     private SerializedProperty snapY;
     protected SerializedProperty background;
     private SerializedProperty handle;
+    private SerializedProperty isRotationJoystick;
 
     protected Vector2 center = new Vector2(0.5f, 0.5f);
 
@@ -25,6 +26,7 @@ public class JoystickEditor : Editor
         snapY = serializedObject.FindProperty("snapY");
         background = serializedObject.FindProperty("background");
         handle = serializedObject.FindProperty("handle");
+        isRotationJoystick = serializedObject.FindProperty("isRotationJoystick");
     }
 
     public override void OnInspectorGUI()
@@ -54,6 +56,7 @@ public class JoystickEditor : Editor
         EditorGUILayout.PropertyField(axisOptions, new GUIContent("Axis Options", "Which axes the joystick uses."));
         EditorGUILayout.PropertyField(snapX, new GUIContent("Snap X", "Snap the horizontal input to a whole value."));
         EditorGUILayout.PropertyField(snapY, new GUIContent("Snap Y", "Snap the vertical input to a whole value."));
+        EditorGUILayout.PropertyField(isRotationJoystick, new GUIContent("Is Rotation Joystick", "Whether or not this joystick is for rotation"));
     }
 
     protected virtual void DrawComponents()
