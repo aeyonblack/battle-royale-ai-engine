@@ -191,4 +191,9 @@ public class CharacterData : MonoBehaviour
         return GetComponent<NavMeshAgent>();
     }
 
+    public void ComputeSomething()
+    {
+
+    }
+
 }
