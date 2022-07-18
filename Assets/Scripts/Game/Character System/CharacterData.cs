@@ -84,7 +84,7 @@ public class CharacterData : MonoBehaviour
     /// <summary>
     /// Default animation controller name
     /// </summary>
-    private string baseController = "_BaseController";
+    private readonly string baseController = "_BaseController";
 
     /// <summary>
     /// Initialize all dependent components
@@ -113,6 +113,8 @@ public class CharacterData : MonoBehaviour
             weaponUpdated?.Invoke();
             weaponEquipped = true;
         }
+        // set the animation controller to match the current equipped weapon
+        // or default if no weapon is equipped
         ChangeAnimationController();
         return weaponEquipped;
     }
@@ -137,16 +139,16 @@ public class CharacterData : MonoBehaviour
     private void ChangeAnimationController()
     {
         Animator animator = GetAnimator();
-        if (gameObject.tag == "Player")
+        if (gameObject.CompareTag("Player"))
         {
             animator.runtimeAnimatorController = Resources
-                .Load("Art/Animators/Player/" + (CurrentWeapon ? CurrentWeapon?.controllerName : baseController))
+                .Load("Art/Animators/Player/" + (CurrentWeapon ? CurrentWeapon != null ? CurrentWeapon.controllerName : null : baseController))
                 as RuntimeAnimatorController;
         }
         else
         {
             animator.runtimeAnimatorController = Resources
-                .Load("Art/Animators/Legends/" + CurrentWeapon?.controllerName)
+                .Load("Art/Animators/Legends/" + CurrentWeapon != null ? CurrentWeapon.controllerName : null)
                 as RuntimeAnimatorController;
         }
     }
@@ -164,10 +166,13 @@ public class CharacterData : MonoBehaviour
         for (int i = 0; i < WeaponPlace.childCount; i++)
         {
             Transform weapon = WeaponPlace.GetChild(i);
-            if (weapon.name == CurrentWeapon?.worldObjectPrefab.name)
+            if (CurrentWeapon != null)
             {
-                CurrentWeaponId = i;
-                return weapon.gameObject;
+                if (weapon.name == CurrentWeapon.worldObjectPrefab.name)
+                {
+                    CurrentWeaponId = i;
+                    return weapon.gameObject;
+                }
             }
         }
         return null;
@@ -189,11 +194,6 @@ public class CharacterData : MonoBehaviour
     public NavMeshAgent GetNavAgent()
     {
         return GetComponent<NavMeshAgent>();
-    }
-
-    public void ComputeSomething()
-    {
-
     }
 
 }
