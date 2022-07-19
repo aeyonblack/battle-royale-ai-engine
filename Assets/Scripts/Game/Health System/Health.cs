@@ -44,7 +44,7 @@ public class Health : MonoBehaviour
         lootDrop = GetComponent<LootDrop>();
         currentHealth = startingHealth;
         //HealthBar.SetBar(currentHealth, 0, maxHealth);
-        HealthText.text = ((int)currentHealth).ToString() + "%";
+        //HealthText.text = ((int)currentHealth).ToString() + "%";
     }
 
     public void TakeDamage(float damage)
