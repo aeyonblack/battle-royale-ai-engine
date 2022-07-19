@@ -201,4 +201,5 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 }
 
 public enum AxisOptions { Both, Horizontal, Vertical }
+
 public enum ControllerType { Movement, Rotation }
